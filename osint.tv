@@ -1,0 +1,29 @@
+# Hypnotix Free TV on TraceLabs OSINT VM
+* Tested on Kali 2020.4 https://www.tracelabs.org/initiatives/osint-vm
+# OSINT
+# 12/19/2020
+# Learn More @ https://github.com/aryanguenthner
+# Usage: Click the Kali Dragon Menu Icon - located in the upper left corner, type hypntoix and press enter.
+
+echo "Installation and Setup"
+echo "cd /opt && https://github.com/aryanguenthner/osint.tv && cd osint.tv && bash osint.tv"
+
+sudo apt update
+
+echo "OSINT TV"
+
+sudo apt -y install libmpv1 gir1.2-xapp-1.0 debhelper python3-setproctitle dpkg-dev git
+
+cd /opt
+sudo git clone https://github.com/linuxmint/hypnotix.git
+cd hypnotix
+
+sudo wget http://ftp.us.debian.org/debian/pool/main/i/imdbpy/python3-imdbpy_6.8-2_all.deb &&
+sudo dpkg -i python3-imdbpy_6.8-2_all.deb 
+sudo dpkg-buildpackage -b -uc
+sudo dpkg -i ../hypnotix*.deb
+
+
+sudo hypnotix &
+
+# OSINT Hacker
